@@ -1,0 +1,25 @@
+<footer class="footer mt-8">
+    <div class="container">
+        <div class="grid grid-4">
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    {% for item in site.data.navigation.footer.quick_links %}
+                    <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="connect">
+                <h4>Connect</h4>
+                <ul>
+                    {% for item in site.data.navigation.footer.connect %}
+                    <li><a href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="copyright text-center mt-8">
+            © {{ 'now' | date: "%Y" }} Pablo Ubal. All rights reserved.
+        </div>
+    </div>
+</footer>

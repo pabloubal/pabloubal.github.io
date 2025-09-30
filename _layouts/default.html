@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    {% if page.custom_css %}
+    {% for stylesheet in page.custom_css %}
+    <link rel="stylesheet" href="{{ '/assets/css/' | append: stylesheet | append: '.css' | relative_url }}">
+    {% endfor %}
+    {% endif %}
+
+    <!-- SEO Tags -->
+    {% seo %}
+    
+    <!-- Scripts -->
+    <script src="{{ '/js/main.js' | relative_url }}" defer></script>
+    
+    <!-- Feed -->
+    {% feed_meta %}
+</head>
+<body class="{% if page.body_class %}{{ page.body_class }}{% endif %}">
+    <!-- Header -->
+    {% include header.html %}
+
+    <!-- Main Content -->
+    <main role="main">
+        {{ content }}
+    </main>
+
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    {% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+    <script src="{{ '/assets/js/' | append: js_file | append: '.js' | relative_url }}"></script>
+    {% endfor %}
+    {% endif %}
+
+    <!-- Footer -->
+    {% include footer.html %}
+
+    <!-- Scripts -->
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    {% if page.custom_js %}
+    {% for js_file in page.custom_js %}
+    <script src="{{ '/assets/js/' | append: js_file | append: '.js' | relative_url }}"></script>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+# Main navigation
+main:
+  - title: About
+    url: /about
+
+# Footer navigation
+footer:
+  quick_links:
+    - title: About
+      url: /about
+
+  connect:
+    - title: LinkedIn
+      url: https://linkedin.com/in/pabloubal
+    - title: GitHub
+      url: https://github.com/pabloubal

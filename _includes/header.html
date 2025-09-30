@@ -1,0 +1,24 @@
+<header class="nav">
+    <div class="container nav-container">
+        <a href="{{ '/' | relative_url }}" class="logo">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="4" fill="#EF4444"/>
+                <text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="white" font-family="Inter" font-weight="600" font-size="16">P</text>
+            </svg>
+        </a>
+        <button class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav">
+            {% assign navigation = site.data.navigation.main %}
+            {% for item in navigation %}
+            <a href="{{ item.url | relative_url }}" {% if page.url == item.url %}class="active"{% endif %}>
+                {{ item.title }}
+            </a>
+            {% endfor %}
+            <a href="/contact" class="contact-button">CONTACT</a>
+        </nav>
+    </div>
+</header>

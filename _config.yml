@@ -1,0 +1,42 @@
+# Site settings
+title: Pablo Ubal - Staff Software Engineer
+email: pablo.ubal@gmail.com
+description: >- # this means ignore newlines until the next key
+  Staff Software Engineer specializing in Advanced Distributed Systems and Rate Limiting.
+  Learn from real-world experience at Auth0/Okta.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+# collections:
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+  - memory.md
+  - sitemap.md
+  - style-guide.md
+  - course-index-wireframe.md
+  - homepage-wireframe.md
+  - blog-posts.md

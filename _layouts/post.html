@@ -1,0 +1,70 @@
+---
+layout: default
+custom_css: blog
+---
+<article class="post">
+    <header class="article-header">
+        <div class="container">
+            <div class="content">
+                <div class="article-meta">
+                    <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+                    {% for tag in page.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                    {% if page.reading_time %}
+                    <span class="reading-time">{{ page.reading_time }} min read</span>
+                    {% endif %}
+                </div>
+                <h1>{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+                <div class="author">
+                    <img src="{{ '/assets/images/portrait.jpg' | relative_url }}" alt="Pablo Ubal" class="author-image">
+                    <div class="author-info">
+                        <span class="author-name">Pablo Ubal</span>
+                        <span class="author-title">Staff Software Engineer at Auth0/Okta</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="article-content">
+        <div class="container">
+            <div class="content">
+                {{ content }}
+
+                <div class="article-footer">
+                    <div class="tags">
+                        {% for tag in page.tags %}
+                        <a href="{{ '/blog?tag=' | append: tag | relative_url }}" class="tag">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                    <div class="share">
+                        <span>Share:</span>
+                        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url | url_encode }}" class="share-link" target="_blank" rel="noopener">Twitter</a>
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url | url_encode }}" class="share-link" target="_blank" rel="noopener">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+
+{% if site.related_posts.size > 0 %}
+<section class="related-posts">
+    <div class="container">
+        <h2>Related Articles</h2>
+        <div class="posts-grid">
+            {% for post in site.related_posts limit:2 %}
+            <article class="post-card">
+                <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+                <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                <a href="{{ post.url | relative_url }}" class="read-more">Read More →</a>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
